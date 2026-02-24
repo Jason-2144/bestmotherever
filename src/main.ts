@@ -1,3 +1,5 @@
+declare const anime: any;
+
 document.addEventListener('DOMContentLoaded', () => {
   // Initialize background particles
   createBackgroundParticles();
@@ -6,16 +8,16 @@ document.addEventListener('DOMContentLoaded', () => {
   animateHero();
 
   // Button Interaction
-  const revealBtn = document.querySelector('.btn-reveal');
+  const revealBtn = document.querySelector('.btn-reveal') as HTMLElement;
   if (revealBtn) {
     revealBtn.addEventListener('click', startMessageReveal);
-    
+
     // Magnetic Hover Effect
-    revealBtn.addEventListener('mousemove', (e) => {
+    revealBtn.addEventListener('mousemove', (e: MouseEvent) => {
       const rect = revealBtn.getBoundingClientRect();
       const x = e.clientX - rect.left - rect.width / 2;
       const y = e.clientY - rect.top - rect.height / 2;
-      
+
       anime({
         targets: revealBtn,
         translateX: x * 0.2,
@@ -45,19 +47,19 @@ function createBackgroundParticles() {
   for (let i = 0; i < particleCount; i++) {
     const particle = document.createElement('div');
     particle.classList.add('bg-particle');
-    
+
     // Random properties
     const size = Math.random() * 20 + 5;
     const color = colors[Math.floor(Math.random() * colors.length)];
     const left = Math.random() * 100;
     const top = Math.random() * 100;
-    
+
     particle.style.width = `${size}px`;
     particle.style.height = `${size}px`;
     particle.style.background = color;
     particle.style.left = `${left}vw`;
     particle.style.top = `${top}vh`;
-    
+
     particleContainer.appendChild(particle);
 
     // Animate each particle
@@ -107,10 +109,10 @@ function animateHero() {
 }
 
 function startMessageReveal() {
-  const heroSection = document.querySelector('.hero-content');
-  const messageContainer = document.querySelector('.message-container');
-  const finalReveal = document.querySelector('.final-reveal');
-  
+  const heroSection = document.querySelector('.hero-content') as HTMLElement;
+  const messageContainer = document.querySelector('.message-container') as HTMLElement;
+  const finalReveal = document.querySelector('.final-reveal') as HTMLElement;
+
   // Fade out hero content
   anime({
     targets: heroSection,
@@ -121,14 +123,14 @@ function startMessageReveal() {
     complete: () => {
       heroSection.style.display = 'none';
       messageContainer.style.display = 'flex';
-      
+
       // Animate message lines
       const messageTimeline = anime.timeline({
         easing: 'easeOutQuad'
       });
 
       const lines = document.querySelectorAll('.message-line');
-      
+
       lines.forEach((line, index) => {
         messageTimeline.add({
           targets: line,
@@ -137,7 +139,7 @@ function startMessageReveal() {
           duration: 1500,
           delay: index === 0 ? 500 : 2000 // Pause between lines
         });
-        
+
         // Fade out previous line if not the last one (optional, but requested "display lines one by one")
         // The prompt says "Display lines one by one", usually implies stacking or replacing.
         // "Pause slightly between each line for emotional pacing."
@@ -204,7 +206,7 @@ function animateFinalReveal() {
       duration: 1000,
       offset: '-=800'
     });
-    
+
   // Soft glow pulse loop for final message
   anime({
     targets: '.final-heading',
@@ -220,13 +222,13 @@ function animateFinalReveal() {
 }
 
 function createParticleBurst() {
-  const container = document.querySelector('.container');
+  const container = document.querySelector('.container') as HTMLElement;
   const colors = ['#D4AF37', '#F8BBD0', '#FFF'];
-  
+
   for (let i = 0; i < 30; i++) {
     const particle = document.createElement('div');
     particle.classList.add('floating-element');
-    
+
     const size = Math.random() * 8 + 2;
     particle.style.width = `${size}px`;
     particle.style.height = `${size}px`;
@@ -235,12 +237,12 @@ function createParticleBurst() {
     particle.style.position = 'absolute';
     particle.style.left = '50%';
     particle.style.top = '50%';
-    
+
     container.appendChild(particle);
-    
+
     const angle = Math.random() * Math.PI * 2;
     const radius = Math.random() * 200 + 50;
-    
+
     anime({
       targets: particle,
       translateX: Math.cos(angle) * radius,
