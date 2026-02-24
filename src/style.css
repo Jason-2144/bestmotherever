@@ -1,0 +1,202 @@
+/* Reset & Base Styles */
+:root {
+  --bg-color: #FFF8F0; /* Warm Cream */
+  --text-primary: #5D4037; /* Warm Brown */
+  --text-secondary: #8D6E63; /* Muted Brown */
+  --accent-gold: #D4AF37; /* Warm Gold */
+  --accent-pink: #F8BBD0; /* Soft Pink */
+  --accent-peach: #FFCCBC; /* Peach */
+  --font-heading: 'Playfair Display', serif;
+  --font-body: 'Poppins', sans-serif;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  background: linear-gradient(135deg, #FFF8F0 0%, #FFF0E6 100%);
+  font-family: var(--font-body);
+  color: var(--text-primary);
+  overflow-x: hidden;
+  height: 100vh;
+  width: 100vw;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+}
+
+/* Background Animation Elements */
+.bg-particle {
+  position: absolute;
+  border-radius: 50%;
+  opacity: 0.6;
+  pointer-events: none;
+  z-index: 0;
+}
+
+/* Main Container */
+.container {
+  position: relative;
+  z-index: 10;
+  text-align: center;
+  padding: 2rem;
+  max-width: 800px;
+  width: 100%;
+}
+
+/* Typography */
+h1 {
+  font-family: var(--font-heading);
+  font-size: 3.5rem;
+  font-weight: 700;
+  color: var(--text-primary);
+  margin-bottom: 1rem;
+  opacity: 0; /* Initial state for animation */
+  transform: translateY(20px);
+}
+
+p.subtext {
+  font-family: var(--font-body);
+  font-size: 1.2rem;
+  color: var(--text-secondary);
+  margin-bottom: 3rem;
+  opacity: 0; /* Initial state for animation */
+  font-weight: 300;
+  letter-spacing: 0.5px;
+}
+
+/* Button Styles */
+.btn-reveal {
+  background: rgba(255, 255, 255, 0.4);
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.6);
+  padding: 1rem 2.5rem;
+  font-family: var(--font-body);
+  font-size: 1rem;
+  color: var(--text-primary);
+  border-radius: 50px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 15px rgba(212, 175, 55, 0.15);
+  opacity: 0; /* Initial state for animation */
+  outline: none;
+  position: relative;
+  overflow: hidden;
+}
+
+.btn-reveal:hover {
+  background: rgba(255, 255, 255, 0.7);
+  box-shadow: 0 6px 20px rgba(212, 175, 55, 0.25);
+  transform: translateY(-2px);
+}
+
+/* Message Section */
+.message-container {
+  display: none; /* Hidden initially */
+  flex-direction: column;
+  gap: 2rem;
+  margin-top: 2rem;
+}
+
+.message-line {
+  font-family: var(--font-heading);
+  font-size: 1.8rem;
+  color: var(--text-primary);
+  opacity: 0;
+  transform: translateY(20px);
+  line-height: 1.4;
+}
+
+/* Final Reveal Section */
+.final-reveal {
+  display: none; /* Hidden initially */
+  margin-top: 3rem;
+}
+
+.mom-photo-container {
+  width: 200px;
+  height: 200px;
+  margin: 0 auto 2rem;
+  border-radius: 50%;
+  overflow: hidden;
+  box-shadow: 0 10px 30px rgba(212, 175, 55, 0.3);
+  border: 4px solid rgba(255, 255, 255, 0.8);
+  opacity: 0;
+  transform: scale(0.8);
+  background-color: #eee; /* Fallback color */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.mom-photo {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+.final-heading {
+  font-family: var(--font-heading);
+  font-size: 2.5rem;
+  color: var(--accent-gold);
+  margin-bottom: 1rem;
+  opacity: 0;
+  transform: scale(0.9);
+  text-shadow: 0 2px 10px rgba(212, 175, 55, 0.2);
+}
+
+.final-subtext {
+  font-family: var(--font-body);
+  font-size: 1.1rem;
+  color: var(--text-secondary);
+  opacity: 0;
+  margin-bottom: 2rem;
+}
+
+.signature {
+  font-family: 'Playfair Display', serif;
+  font-style: italic;
+  font-size: 1.2rem;
+  color: var(--text-primary);
+  opacity: 0;
+  margin-top: 2rem;
+  position: relative;
+  display: inline-block;
+}
+
+.signature::before {
+  content: '';
+  position: absolute;
+  width: 40px;
+  height: 1px;
+  background: var(--accent-gold);
+  left: -50px;
+  top: 50%;
+}
+
+/* Floating Hearts/Elements */
+.floating-element {
+  position: absolute;
+  pointer-events: none;
+  opacity: 0;
+}
+
+/* Responsive Adjustments */
+@media (max-width: 768px) {
+  h1 {
+    font-size: 2.5rem;
+  }
+  
+  .message-line {
+    font-size: 1.4rem;
+  }
+  
+  .final-heading {
+    font-size: 2rem;
+  }
+}

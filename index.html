@@ -1,0 +1,55 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Dear Mom ❤️</title>
+    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=Poppins:wght@300;400;500&display=swap" rel="stylesheet">
+    
+    <!-- Styles -->
+    <link rel="stylesheet" href="/src/style.css">
+    
+    <!-- Anime.js CDN -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.1/anime.min.js"></script>
+  </head>
+  <body>
+    <div class="container">
+      <!-- Hero Section -->
+      <div class="hero-content">
+        <h1>Dear Mom ❤️</h1>
+        <p class="subtext">Some things are hard to put into words…</p>
+        <button class="btn-reveal">tap gently</button>
+      </div>
+
+      <!-- Message Reveal Section -->
+      <div class="message-container">
+        <div class="message-line">For everything you do…</div>
+        <div class="message-line">For always being there…</div>
+        <div class="message-line">Thank you, Mom ❤️</div>
+      </div>
+
+      <!-- Final Reveal Section -->
+      <div class="final-reveal">
+        <div class="mom-photo-container">
+          <!-- 
+            IMPORTANT: To display your photo:
+            1. Rename your photo to "mom.jpg"
+            2. Drag and drop it into the "public" folder in the file explorer on the left
+          -->
+          <img src="/mom.jpg" alt="Mom" class="mom-photo" onerror="this.style.display='none'; this.parentElement.style.background='#f0f0f0';">
+        </div>
+        <h2 class="final-heading">Thank you for being the best mother ever</h2>
+        <p class="final-subtext">Thank you ❤️</p>
+        <div class="signature">— with love, Jason &lt;3</div>
+      </div>
+    </div>
+
+    <!-- Main Script -->
+    <script type="module" src="/src/main.js"></script>
+  </body>
+</html>
+
